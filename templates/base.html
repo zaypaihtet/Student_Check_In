@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}School Attendance & Lesson Management{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-mortarboard-fill me-2"></i>School Management System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/student"><i class="bi bi-person-check me-1"></i>Student</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/teacher"><i class="bi bi-book me-1"></i>Teacher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login"><i class="bi bi-shield-lock me-1"></i>Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    <div class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h1 class="display-3 fw-bold text-white mb-4">School Attendance & Lesson Management</h1>
+                    <p class="lead text-white-50 mb-5">Streamline your school operations with our comprehensive management system</p>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="role-card student-card">
+                                <div class="role-icon">
+                                    <i class="bi bi-person-check-fill"></i>
+                                </div>
+                                <h3>Students</h3>
+                                <p>Quick check-in and check-out system</p>
+                                <a href="/student" class="btn btn-primary btn-lg">Access Portal</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="role-card teacher-card">
+                                <div class="role-icon">
+                                    <i class="bi bi-book-fill"></i>
+                                </div>
+                                <h3>Teachers</h3>
+                                <p>Log lessons and topics efficiently</p>
+                                <a href="/teacher" class="btn btn-success btn-lg">Access Portal</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="role-card admin-card">
+                                <div class="role-icon">
+                                    <i class="bi bi-shield-lock-fill"></i>
+                                </div>
+                                <h3>Admin</h3>
+                                <p>Manage and export all records</p>
+                                <a href="/admin/login" class="btn btn-warning btn-lg">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 School Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

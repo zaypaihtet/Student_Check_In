@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Topics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: #fff; }
+        table { background-color: #1e1e1e; }
+        .btn { background-color: #4CAF50; color: white; }
+        .nav-link { color: #fff !important; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/dashboard">Admin Dashboard</a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="/dashboard">Attendance</a></li>
+      <li class="nav-item"><a class="nav-link" href="/batches">Batches</a></li>
+      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    <h3>📝 Add Class Topics</h3>
+    <form method="POST" class="mb-4">
+        <div class="mb-3">
+            <label>Batch</label>
+            <select name="batch" class="form-select" required>
+                {% for b in batches %}
+                <option value="{{ b.id }}">{{ b.batch_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Teacher Name</label>
+            <input type="text" name="teacher_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Topic</label>
+            <input type="text" name="topic" class="form-control" required>
+        </div>
+        <button class="btn" type="submit">Add Topic</button>
+    </form>
+
+    <h3 class="mt-5">📚 Topics List</h3>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Batch</th>
+                <th>Teacher</th>
+                <th>Topic</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in topics %}
+            <tr>
+                <td>{{ t.id }}</td>
+                <td>{{ t.batch_name }}</td>
+                <td>{{ t.teacher_name }}</td>
+                <td>{{ t.topic }}</td>
+                <td>{{ t.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

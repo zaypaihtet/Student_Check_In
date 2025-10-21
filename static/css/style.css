@@ -1,0 +1,122 @@
+/* Global Styles */
+:root {
+    --primary-blue: #4361ee;
+    --success-green: #06d6a0;
+    --warning-orange: #f77f00;
+    --danger-red: #dc3545;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Role Cards */
+.role-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.role-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.student-card .role-icon {
+    background: linear-gradient(135deg, #4361ee, #3451d1);
+    color: white;
+}
+
+.teacher-card .role-icon {
+    background: linear-gradient(135deg, #06d6a0, #05b589);
+    color: white;
+}
+
+.admin-card .role-icon {
+    background: linear-gradient(135deg, #f77f00, #dc6f00);
+    color: white;
+}
+
+/* Portal Cards */
+.student-portal .card-header {
+    background: linear-gradient(135deg, #4361ee, #3451d1) !important;
+}
+
+.teacher-portal .card-header {
+    background: linear-gradient(135deg, #06d6a0, #05b589) !important;
+}
+
+.admin-portal .card-header {
+    background: linear-gradient(135deg, #f77f00, #dc6f00) !important;
+}
+
+/* Form Styles */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.25);
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Table Styles */
+.table-hover tbody tr:hover {
+    background-color: rgba(67, 97, 238, 0.05);
+    cursor: pointer;
+}
+
+/* Card Shadows */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.shadow-lg {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+    
+    .role-card {
+        margin-bottom: 20px;
+    }
+}
